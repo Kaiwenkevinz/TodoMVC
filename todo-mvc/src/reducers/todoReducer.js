@@ -4,11 +4,11 @@ const initialState = {
     todoList: [
         {
             id: uuidv4(),
-            name: 'Read a bit',
+            name: '我是一个已完成的Todo',
             complete: true
         }, {
             id: uuidv4(),
-            name: 'Do laundry',
+            name: '点我试一试',
             complete: false
         }
     ]

@@ -4,17 +4,13 @@ import {useDispatch} from 'react-redux';
 const {v4: uuidv4} = require('uuid');
 
 const TodoInput = () => {
-    const [todoName, setTodo] = useState('');
+    const [todoName,
+        setTodo] = useState('');
 
     const dispatch = useDispatch();
 
     const addTodo = (todo) => {
-        dispatch(
-            {
-                type: 'ADD_TODO',
-                payload: todo
-            }
-        )
+        dispatch({type: 'ADD_TODO', payload: todo})
     }
 
     const onChange = (event) => {
@@ -34,15 +30,22 @@ const TodoInput = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <div className="form-div">
+
+            <div className="input-field inline">
                 <input
+                    id="text"
                     type="text"
+                    className="validate"
                     name="todo"
-                    placeholder="Add a todo"
                     value={todoName}
                     onChange={onChange}/>
-                <button type="submit">Add</button>
+                <label htmlFor="text">点击这里创建新Todo</label>
             </div>
+
+            <button type="submit" className="btn-floating waves-effect waves-light red">
+                <i className="material-icons">add</i>
+            </button>
+
         </form>
     );
 };
