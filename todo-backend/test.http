@@ -1,0 +1,57 @@
+@url = http://localhost:3001/api
+@json = Content-Type: application/json
+
+### 所有用户
+get {{url}}/users
+
+### 注册
+post {{url}}/register
+{{json}}
+
+{
+    "username": "user3",
+    "password": "123456"
+}
+
+### 登录
+post {{url}}/login
+{{json}}
+
+{
+    "username": "user3",
+    "password": "123456"
+}
+
+### 个人信息
+get {{url}}/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjA3NzZmYjc4YzM5MmI5MmViM2IyYiIsImlhdCI6MTU5NTk2NDM5NH0.0LCrKVtNekpNmoq6fvd580GP7j_N4POSRyPe1FGj3HA
+
+### 获取当前用户所有Todos
+get {{url}}/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjA3NzZmYjc4YzM5MmI5MmViM2IyYiIsImlhdCI6MTU5NTk3MDUzM30.ZOe6FgUWOqifGMiM8pWVJ1hm4WN8RVqXjkOgFkf2pcI
+
+### 添加Todo 
+post {{url}}/todos
+{{json}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjA3NzZmYjc4YzM5MmI5MmViM2IyYiIsImlhdCI6MTU5NTk3MDUzM30.ZOe6FgUWOqifGMiM8pWVJ1hm4WN8RVqXjkOgFkf2pcI
+
+{
+    "name": "todo 3",
+    "complete": false
+}
+
+### 删除Todo
+delete {{url}}/todos/5f20b80c2bd5a81e32486fd7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjA3NzZmYjc4YzM5MmI5MmViM2IyYiIsImlhdCI6MTU5NTk3MDUzM30.ZOe6FgUWOqifGMiM8pWVJ1hm4WN8RVqXjkOgFkf2pcI
+
+
+### 更新Todo
+post {{url}}/todo
+{{json}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjA3NzZmYjc4YzM5MmI5MmViM2IyYiIsImlhdCI6MTU5NTk3MDUzM30.ZOe6FgUWOqifGMiM8pWVJ1hm4WN8RVqXjkOgFkf2pcI
+
+{
+    "_id": "5f28956ee6017c76fce6580b",
+    "name": "todo 3",
+    "complete": true
+}
